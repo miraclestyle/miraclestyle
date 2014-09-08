@@ -87,7 +87,17 @@ class Test1(BaseTestHandler):
         outer.tests1 = [TestA(name='zoobar1', gaa=2, _sequence=10)]
         outer.put()
     self.out_json([outer.tests2.value._properties, outer])
- 
+  
+  
+class Test2(BaseTestHandler):
+  
+  def respond(self):
+    import PIL
+    import sys
+    
+    self.out_json([sys.version, sys.version_info, sys.path])
+    #self.out_json(copy.copy(sys.modules))
+    
  
 for k,o in globals().items():
   if inspect.isclass(o) and issubclass(o, BaseTestHandler):

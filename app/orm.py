@@ -491,11 +491,11 @@ class _BaseModel(object):
     virtual_fields = self.get_virtual_fields()
     if virtual_fields:
       out = out[:-1]
-      repr = []
+      rout = []
       for field_key, field in virtual_fields.iteritems():
         val = getattr(self, field_key, None)
-        repr.append('%s=%s' % (field._code_name, val))
-      out += '%s)' % ', '.join(repr)
+        rout.append('%s=%s' % (field._code_name, val))
+      out += '%s)' % ', '.join(rout)
     return out
   
   @classmethod
