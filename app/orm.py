@@ -2242,7 +2242,7 @@ class _BaseProperty(object):
         return value  # Returns util.Nonexistent
     if self._repeated:
       out = []
-      if not isinstance(value, (list, tuple)):
+      if not isinstance(value, list):
         value = [value]
       for v in value:
         self._property_value_validate(v)
